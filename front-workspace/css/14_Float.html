@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14_Float.html</title>
+    <link rel="stylesheet" href="./stylesheets/css_14.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0&icon_names=error,expand_circle_down" />
+    <script src="https://kit.fontawesome.com/1b4ba30ddb.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <h3># Float</h3>
+
+    <ul>
+        <li>다른 내용들이 float이 설정된 요소를 비켜가게 만드는 속성</li>
+        <li>float이 설정된 요소는 냇가에 박혀있는 돌 같은 느낌이 된다</li>
+    </ul>
+
+    <h5># float: left</h5>
+    <div class="article">
+        <img class="article-img float-left" src="./images/토마토.jpg" alt="토마토">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim in voluptate nulla ad rem magni, deserunt totam repellendus saepe dignissimos sapiente hic nam recusandae accusamus cum fugit praesentium nostrum quidem.
+        Exercitationem nihil laboriosam itaque dolores ea? Quae, quod praesentium. Obcaecati nulla harum suscipit quis eum, tempora molestiae officiis id voluptatibus eos nemo iure non, amet natus optio. Similique, error consequatur?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus praesentium dolorum iure laboriosam perspiciatis modi, itaque cumque numquam inventore repellat quis, quisquam in cum voluptate dicta earum iusto dignissimos ratione.
+        Ab, iusto modi tempore similique inventore totam est debitis a possimus iste tenetur repellat reiciendis illum commodi, veritatis adipisci, nulla sunt? Dolores fuga eum ullam debitis eaque ipsam possimus laborum.
+        Nostrum esse deserunt accusantium officia voluptas provident cumque officiis nihil! Assumenda, aspernatur voluptates. Eveniet fuga illo excepturi dolore, quasi expedita quod debitis? Fugiat consequatur voluptates ullam a harum aliquam asperiores.
+    </div>
+
+    <h5># float: right</h5>
+    <div class="article">
+        <img class="article-img float-right" src="./images/와사비.jpg" alt="와사비">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim in voluptate nulla ad rem magni, deserunt totam repellendus saepe dignissimos sapiente hic nam recusandae accusamus cum fugit praesentium nostrum quidem.
+        Exercitationem nihil laboriosam itaque dolores ea? Quae, quod praesentium. Obcaecati nulla harum suscipit quis eum, tempora molestiae officiis id voluptatibus eos nemo iure non, amet natus optio. Similique, error consequatur?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus praesentium dolorum iure laboriosam perspiciatis modi, itaque cumque numquam inventore repellat quis, quisquam in cum voluptate dicta earum iusto dignissimos ratione.
+        Ab, iusto modi tempore similique inventore totam est debitis a possimus iste tenetur repellat reiciendis illum commodi, veritatis adipisci, nulla sunt? Dolores fuga eum ullam debitis eaque ipsam possimus laborum.
+        Nostrum esse deserunt accusantium officia voluptas provident cumque officiis nihil! Assumenda, aspernatur voluptates. Eveniet fuga illo excepturi dolore, quasi expedita quod debitis? Fugiat consequatur voluptates ullam a harum aliquam asperiores.
+    </div>
+
+    <h3># clear 속성 사용하기</h3>
+
+    <ul>
+        <li>clear: left - 해당 요소의 왼쪽에 float 요소가 올 수 없게 만든다</li>
+        <li>clear: right - 해당 요소의 오르쪽에 float 요소가 올 수 없게 만든다</li>
+        <li>clear: both - 해당 요소 양쪽에 float 요소가 올 수 없게 만든다</li>
+    </ul>
+
+    <h5>
+        # 내용의 양이 충분하지 않은 경우 float 요소가 박스를 벗어나게 된다
+        (해당 방향 clear를 통해 해결할 수 있다)
+    </h5>
+    <div class="article">
+        <img class="article-img float-left" src="./images/몰루.jpg" alt="배? 몰루 모과인가봄 옆자리 분이 알려주셨어요">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim in voluptate nulla ad rem magni, deserunt totam repellendus saepe dignissimos sapiente hic nam recusandae accusamus cum fugit praesentium nostrum quidem.
+        <div style="clear: left;"></div>
+    </div>
+
+    <h5>
+        # 내용의 양이 충분하지 않은 경우 float 요소가 박스를 벗어나게 된다2
+        (float 요소들이 겹치는 것도 clear로 해결할 수 있다)
+    </h5>
+    <div class="article">
+        <img class="article-img float-left" src="./images/몰루.jpg" alt="배? 몰루 모과인가봄 옆자리 분이 알려주셨어요">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim in voluptate nulla ad rem magni, deserunt totam repellendus saepe dignissimos sapiente hic nam recusandae accusamus cum fugit praesentium nostrum quidem.
+        <div style="clear: left;"></div>
+        <img class="article-img float-right" src="./images/몰루.jpg" alt="배? 몰루 모과인가봄 옆자리 분이 알려주셨어요">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim in voluptate nulla ad rem magni, deserunt totam repellendus saepe dignissimos sapiente hic nam recusandae accusamus cum fugit praesentium nostrum quidem.
+        <div style="clear: right;"></div>
+    </div>
+
+    <h3># float 악용하기</h3>
+
+    <h5># 여러 요소를 같은 방향 float으로 설정하면 쌓을 수 있다</h5>
+    <div id="float-box1">
+        <img id="float-image1" src="./images/와사비.jpg">
+        <img id="float-image2" src="./images/몰루.jpg">
+        <img id="float-image3" src="./images/토마토.jpg">
+        <div style="clear: both;"></div>
+    </div>
+
+    <h5># 이를 악용하여 원하는 사이트 레이아웃을 구성할 수 있다</h5>
+    <div id="float-box2">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+
+    <div id="layout">
+        <div id="top">
+            <p>2025년 8월 25일 오늘의 선택</p>
+            <p>MD의 선택</p>
+            <p>무료배송</p>
+            <p>사은품</p>
+            <p>소득공제</p>
+        </div>
+
+        <br>
+
+        <div id="가격">
+            <p>
+                <b>10% </b><b>19,800원 </b> <del>22,000원</del>
+            </p>
+        </div>
+
+        <div id="선"></div>
+
+        <div id="적립">
+            <p><b>적립/혜택</b></p>
+            <p>
+                <span class="fa-stack" style="vertical-align: top; font-size: 0.6em; margin-top: 2px;">
+                    <i class="fa-regular fa-circle fa-stack-2x"></i>
+                    <i class="fa-solid fa-angle-down fa-stack-1x"></i>
+                </span>
+            </p>
+            <p style="margin-right: 5px;"><b>1,100P</b></p>
+        </div>
+        
+        <div class="clear"></div>
+        <div id="선"></div>
+
+        <div id="배송">
+            <div>
+                <p><b>배송안내</b></p>
+            </div>
+
+            <div>
+                <span class="fa-stack" style="vertical-align: top; font-size: 0.6em; margin-top: 19px">
+                    <i class="fa-regular fa-circle fa-stack-2x"></i>
+                    <i class="fa-solid fa-exclamation fa-stack-1x"></i>
+                </span>
+            </div>
+
+            <div><p><b>무료배송</b></p></div>
+            <div class="clear"></div>
+
+            <div>
+                <span class="fa-stack" style="vertical-align: top; font-size: 0.6em; margin-top: 19px;">
+                    <i class="fa-regular fa-circle fa-stack-2x"></i>
+                    <i class="fa-solid fa-question fa-stack-1x"></i>
+                </span>
+            </div>
+
+            <div><p><b>오늘(7/28,월) 도착</b></p></div>
+
+            <div><p>당일배송</p></div>
+            <div class="clear"></div>
+            
+            <div>
+                <span class="fa-stack" style="vertical-align: top; font-size: 0.6em; margin-top: 19px">
+                    <i class="fa-regular fa-circle fa-stack-2x"></i>
+                    <i class="fa-solid fa-exclamation fa-stack-1x"></i>
+                </span>
+            </div>
+            <div><p>기본 배송지 기준</p></div>
+        </div>
+
+        <div class="clear"></div>
+        <div id="선" style="margin-top: 20px;"></div>
+
+        <div id="로그인">
+            <p>
+                <ins>로그인</ins> 후 <b>정확한 배송 안내</b>를 받아보세요!
+            </p>
+        </div>
+
+        <div class="clear"></div>
+        <div id="선"></div>
+
+        <div id="알림신청">
+            <div>
+                <p style="text-align: justify;">
+                    알림 신청하시면 원하시는 정보를 받아 보실 수 있습니다.
+                </p>
+            </div>
+
+            <div>
+                <p>
+                    <i class="fa-regular fa-bell" style="color: blue;"></i>
+                    알림신청
+                </p>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+
+        <div id="매장위치">
+            <p style="font-weight: 500;">
+                <i class="fa-regular fa-map"></i>
+                매장 재고·위치
+            </p>
+        </div>
+
+        <div style="margin-top: 20px;"></div>
+
+        <div id="알립니다">
+            <p style="font-weight: 600;">
+                <i class="fa-regular fa-comment-dots"></i>
+                알립니다.
+            </p>
+            <p>
+                1.초판 한정 작가 친필 메시지와 사인 인쇄 <br>
+                2.이 책 포함 소설 2만원↑ 구매 시 40주년 타월 선택 (매장, 바로드림 구매 시 제외)
+            </p>
+        </div>
+
+    </div>
+
+    <br><br>
+
+    <!-- 선생님꺼 -->
+    <div id="book_info">
+        <div class="badge_list_box">
+            <b class="badge_line_navy">2025년 07월 25일 오늘의 선택</b>
+            <b class="badge_line_navy">MD의 선택</b>
+            <b class="badge_line_gray">무료배송</b> <br>
+            <b class="badge_line_gray">사은품</b>
+            <b class="badge_line_gray">소득공제</b>
+        </div>
+
+        <div class="price_box">
+            <b class="percent">10%</b>
+            <b class="sale_price">19,800원</b>
+            <b class="price">22,000원</b>
+        </div>
+
+        <div class="point_box">
+            <div class="point_label">
+                <b>적립/혜택</b>
+            </div>
+            <div class="point_text">
+                <b>1,100P</b>
+                <img src="./images/tooltip.png">
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

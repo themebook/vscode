@@ -1,0 +1,166 @@
+#hello {
+    color: red;
+    font-size: 50px;
+}
+
+@media screen and (max-width: 1200px) {
+    #hello {
+        color: blue;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #hello {
+        color: green;
+    }
+}
+
+@media print {
+    #hello {
+        color: purple;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    #hello {
+        font-size: 40px;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    #hello {
+        font-size: 30px;
+    }
+}
+
+#menu_div {
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 550px) {
+    #menu_div {
+        flex-direction: column;
+    }
+}
+
+body {
+    word-break: keep-all;
+    word-wrap: break-word;
+}
+
+#main .box {
+    display: flex;
+    flex: 1 1 40%;
+    /* -webkit-box-flex: 1; */
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 24px;
+}
+
+#main > ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+}
+
+#main > ul > li {
+    height: 110px;
+    margin: 12px 0 0 12px;
+    padding: 32px 36px;
+    background-color: #f3f3f3;
+}
+
+.cate {
+    font-size: 18px;
+    letter-spacing: -.5px;
+    font-weight: bolder;
+    word-break: break-all;
+}
+
+.item {
+    white-space: nowrap;
+    margin-left: 17px;
+}
+
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+.link {
+    width: 46px;
+    height: 46px;
+    margin-left: 8px;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 12px;
+}
+
+a {
+    text-decoration: none;
+    background-image: url(../images/카카오톡.jpg);
+}
+
+.plus {
+    background-image: url(../images/다운로드.svg);
+}
+
+.wa {
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 1439px) {
+    #main .list {
+        margin: -12px 0 0 -12px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    #main .box {
+        height: 110px;
+        margin: 8px 0 0 8px;
+        padding: 32px 24px;
+        border-radius: 16px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #main > ul > .box {
+        position: relative;
+        display: block;
+        width: calc(50% - 12px);
+        max-width: 220px2gi ;
+        height: auto;
+        margin: 12px 0 0 12px;  
+        padding: 20px 20px 82px;
+    }
+
+    #main > ul > .box > .item {
+        position: absolute;
+        left: 20px;
+        bottom: 20px;
+        margin-left: 0;
+    }
+
+    #main > ul {
+        padding: 0 30px;
+    }
+
+    #main > ul > .box > .item > a:first-child {
+        margin-left: 0;
+    }
+
+    #main > ul > .box > .item > a:nth-child(3) {
+        display: none;
+    }
+}

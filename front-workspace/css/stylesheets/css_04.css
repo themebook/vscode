@@ -1,0 +1,66 @@
+div {
+    border: solid 3px black;
+    height: 500px;
+    margin-bottom: 50px;
+}
+
+div:first-of-type {
+    background-image: url("../images/사과.jpg");
+
+    /* 
+        # background-size
+        설정 안함 : 원본 이미지 크기를 그대로 사용한다
+        contain : 해당 요소안에 이미지가 모두 포함될 수 있는 크기로 설정
+        cover : 이미지로 해당 요소를 모두 덮을 수 있는 크기로 설정
+     */
+    background-size: 100px 100px;
+
+    /*
+        # background-repeat
+
+        repeat : 반복하기 (기본값)
+        repeat-x : 가로로만 반복하기
+        repeat-y : 세로로만 반복하기
+        no-repeat: 반복 안함
+    */
+    background-repeat: no-repeat;
+
+    /* 
+        # background-position
+        직접 설정 : x축 y축
+        center, top, bottom, right, left를 모두 조합하여 사용할 수 있다
+    */
+    background-position: center;
+}
+
+div:nth-of-type(2) {
+    background-image: url("../images/몰루.jpg");
+    background-size: cover;
+    /* background-position: left;
+    background-repeat: repeat-y; */
+}
+div:nth-of-type(3) {
+    background-image: url("../images/와사비.jpg");
+    background-size: cover;
+    /* background-position: center;
+    background-repeat: repeat-y; */
+}
+div:nth-of-type(4) {
+    background-image: url("../images/토마토.jpg");
+    background-size: cover;
+    /* background-position: right;    
+    background-repeat: repeat-y; */
+}
+
+#cafe-button {
+    background-image: url("../images/sp_main.png");
+    background-repeat: no-repeat;
+    background-position: -83px -440px;
+
+    border: none;
+    border-radius: 14px;
+    box-sizing: border-box;
+    width: 80px;
+    height: 80px;
+    background-color: blanchedalmond;
+}

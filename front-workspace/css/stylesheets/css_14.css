@@ -1,0 +1,328 @@
+* {
+    box-sizing: border-box;
+}
+
+.article {
+    border: solid 3px black;
+    padding: 10px;
+}
+
+.article-img {
+    width: 300px;
+    height: auto;
+}
+
+.float-left {
+    float: left;
+    margin-right: 10px;
+}
+
+.float-right {
+    float: right;
+    margin-left: 10px;
+}
+
+#float-box1 {
+    border: 1px solid black;
+}
+
+#float-box1 > img {
+    width: 200px;
+    height: auto;
+    border: 1px solid black;
+}
+
+.float-item {
+    float: left;
+    width: 20%;
+    height: 100px;
+    line-height: 98px;
+    text-align: center;
+    border: solid 1px black;
+    border-radius: 10px;
+    font-size: 50px;
+}
+
+#float-image1 {
+    float: left;
+}
+
+#float-image2 {
+    float: left;
+}
+
+#float-image3 {
+    float: right;
+}
+
+#float-box2 {
+    width: 1000px;
+    margin: auto;
+}
+
+#float-box2 > div {
+    float: left;
+    color: black;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#float-box2 > div:first-child {
+    background-color: salmon;
+    height: 150px;
+    width: 100%;
+    line-height: 150px;
+}
+
+#float-box2 > div:nth-child(2) {
+    background-color: linen;
+    height: 500px;
+    width: 15%;
+    line-height: 500px;
+}
+
+#float-box2 > div:nth-child(3) {
+    background-color: peru;
+    height: 500px;
+    width: 70%;
+    line-height: 500px;
+}
+
+#float-box2 > div:nth-child(4) {
+    background-color: darkcyan;
+    height: 500px;
+    width: 15%;
+    line-height: 500px;
+}
+
+#float-box2 > div:nth-child(5) {
+    background-color: cornflowerblue;
+    height: 150px;
+    width: 100%;
+    line-height: 150px;
+}
+
+#float-box2::after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+#layout {
+    width: 350px;
+    height: 700px;
+    border: solid 1px black;
+    padding: 5px;
+}
+
+#top {
+    margin-bottom: 40px;
+    height: auto;
+    width: 100%;
+}
+
+#top > p {
+    float: left;
+    border: 1px solid gray;
+    color: gray;
+    border-radius: 10px;
+    font-size: 12px;
+    padding: 5px;
+    margin: 3px;
+}
+
+#top > p:first-child {
+    color: aqua;
+    border: solid 1px aqua;
+}
+
+#top > p:nth-child(2) {
+    color: aqua;
+    border: solid 1px aqua;
+}
+
+#top > p:nth-child(3) {
+    color: aqua;
+    border: solid 1px aqua;
+}
+
+#가격 > p > b:first-child {
+    color: greenyellow;
+}
+
+#가격 > p > del {
+    font-size: 0.5em;
+    color: gray;
+}
+
+#선 {
+    border: 0.1mm solid rgb(214, 214, 214);
+}
+
+#적립 {
+    width: 100%;
+    float: left;
+}
+
+#적립 > p {
+    float: right;
+    margin: 16px 0;
+}
+
+#적립 > p:first-child {
+    float: left;
+}
+
+#적립 > p:nth-child(3) {
+    color: greenyellow;
+}
+
+.clear {
+    clear: both;
+}
+
+#배송 {
+    width: 100%;
+}
+
+#배송 > div {
+    float: right;
+    height: 40px;
+}
+
+#배송 > div:first-child {
+    float: left;
+}
+
+#배송 > div:nth-child(7) > p {
+    color: plum;
+    background-color: aliceblue;
+    margin-right: 8px;
+    border-radius: 7px;
+    padding: 0 2px;
+}
+
+#로그인 {
+    text-align: right;
+}
+
+#로그인 > p > ins {
+    color: rgb(151, 223, 45);
+}
+
+#알림신청 > div:first-child {
+    float: left;
+    width: 60%;
+}
+
+#알림신청 > div:nth-child(2) {
+    float: right;
+    border: 2px solid blue;
+    border-radius: 10px;
+    margin: 16px 3px;
+    margin-top: 20px;
+}
+
+#알림신청 > div:nth-child(2) > p {
+    margin: 5px 2px;
+    color: blue;
+}
+
+#매장위치 {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#알립니다 {
+    padding: 0 20px;
+    margin-top: 40px;
+}
+
+#book_info {
+    width: 330px;
+    background-color: linen;
+}
+
+#book_info > div {
+    float: left;
+}
+
+.badge_list_box {
+    width: 100%;
+    line-height: 1.6em;
+    user-select: none;
+}
+
+.badge_list_box > b {
+    font-weight: 400;
+    border: solid 1px black;
+    font-size: 0.8em;
+    padding: 1px 3px;
+    border-radius: 4px;
+}
+
+.badge_list_box > b.badge_line_navy {
+    color: slateblue;
+    border-color: slateblue;
+}
+
+.badge_list_box > b.badge_line_gray {
+    color: gray;
+    border-color: gray;
+}
+
+.price_box {
+    width: 100%;
+    margin-top: 25px;
+    word-spacing: 0.3em;
+}
+
+.price_box > b.percent {
+    color: #4dac27;
+    font-size: 1.4em;
+}
+
+.price_box > b.sale_price {
+    font-size: 1.4em;
+}
+
+.price_box > b.price {
+    color: gray;
+    text-decoration: line-through;
+    font-weight: 400;
+    font-size: 0.8em;
+    margin-left: -5px;
+}
+
+.point_box {
+    width: 100%;
+    padding: 20px 0;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+
+.point_box > .point_label {
+    float: left;
+}
+
+.point_box > .point_text {
+    float: right;
+}
+
+.point_box > .point_text > b {
+    color: #4dac27;
+    margin-right: 5px;
+}
+
+.point_box > .point_text > img {
+    height: 1.2em;
+    vertical-align: -3px;
+}
+
+.point_box::after {
+    display: block;
+    clear: both;
+    content: "";
+}
