@@ -101,13 +101,43 @@
     // 연습: 1~45 의 중복없는 랜덤 6자리 숫자 배열을 생성하여 반환하는 함수를 만들기
     const ran = () => {
       let arr = [];
-      
+
       while(arr.length < 6) {
         let r = Math.floor(Math.random() * 45) + 1;
-        if (!arr.includes(r)) {
+        let b = false;
+        for (let i = 0; i < arr.length; i++) {
+          if (r === arr[i]) {
+            b = true;
+            break;
+          }
+        }
+        if (!b) {
           arr.push(r);
         }
       }
+
+      // 선생님꺼
+      // mdn web docs << 자바 관련 사이트
+      const lotto = [];
+
+      let len;
+      while ((len = lotto.length) < 6) {
+        const rn = parseInt(Math.random() * 45 + 1);
+
+        if (!lotto.includes(rn)) {
+          lotto[len] = rn;
+        } else {
+          console.log('중복 발생:', rn);
+        }
+      }
+      console.log(lotto);
+      
+      // while(arr.length < 6) {
+      //   let r = Math.floor(Math.random() * 45) + 1;
+      //   if (!arr.includes(r)) {
+      //     arr.push(r);
+      //   }
+      // }
 
       return arr;
     }
