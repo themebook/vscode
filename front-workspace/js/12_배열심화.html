@@ -5,7 +5,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>12_배열심화.html</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=star,star_half" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=star,star_half" />
+  <style>
+    table, tr, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    th {
+      background-color: peru;
+    }
+
+    td.name {
+      font-style: italic;
+      padding: 3px;
+      text-align: center;
+    }
+
+    caption::before {
+      content: "<<";
+    }
+
+    caption::after {
+      content: ">>";
+    }
+
+    .red {
+      color: red;
+    }
+  </style>
 </head>
 
 <body>
@@ -17,6 +46,23 @@
   <table id="평균" border="1"></table>
 
   <table id="수학미만" border="1"></table>
+
+  <table id="basic_info_table">
+    <thead></thead>
+    <tbody></tbody>
+  </table>
+
+  <table id="avg_info_table">
+    <caption>평균 점수 정보</caption>
+    <thead></thead>
+    <tbody></tbody>
+  </table>
+
+  <table id="math_failure_table">
+    <caption>수학 낙제자 정보</caption>
+    <thead></thead>
+    <tbody></tbody>
+  </table>
 
   <script>
     const arr = [1, 2, 3, 4, 5, 6];
@@ -159,12 +205,12 @@
       (5) 2번의 마지막 행에는 각 열의 총합과 평균을 출력하기
     */
 
-    const first =
+    const names1 =
       ['강', '고', '곽', '구', '권', '기', '김', '나', '남', '노',
         '문', '박', '배', '백', '변', '서', '석', '성', '손', '송',
         '신', '심', '양', '어', '염', '오', '우', '원', '유', '윤',
-        '이', '임']
-    const names =
+        '이', '임'];
+    const names2 =
       ['강민', '강영', '강준', '강희', '고민', '고은', '고준', '영민', '수영', '구민',
         '구은', '구정', '수민', '산영', '주희', '기민', '기영', '김민', '김영', '김준',
         '주희', '나민', '나영', '나은', '남민', '남영', '노민', '노영', '문민', '문영',
@@ -174,7 +220,8 @@
         '신민', '신영', '신준', '심민', '심영', '심준', '양민', '양영', '양준', '어민'];
 
     const getRandomNum = () => parseInt(Math.random() * 100 + 1);
-    const getRandomName = () => `${first[parseInt(Math.random() * first.length)]}${names[parseInt(Math.random() * names.length)]}`;
+    const getRandomName = () => `${names1[parseInt(Math.random() * names1.length)]}${names2[parseInt(Math.random() * names2.length)]}`;
+
     const getStar = () => parseInt(Math.random() * 5 + 1);
     const getStarImage = () => {
       let s = '';
@@ -262,18 +309,153 @@
       return s;
     };
 
-    table1.innerHTML += `<tr><td colspan="2">국어총합/평균</td><td colspan="2">영어총합/평균</td><td colspan="2">수학총합/평균</td></tr>`;
-    table1.innerHTML += `<tr>
+    table1.innerHTML += `
+    <tr>
+      <td colspan="2">국어총합/평균</td>
+      <td colspan="2">영어총합/평균</td>
+      <td colspan="2">수학총합/평균</td>
+    </tr>`;
+    table1.innerHTML += `
+    <tr>
       <td colspan="2">${result.국어총합}/${국어평균}</td>
       <td colspan="2">${result.영어총합}/${영어평균}</td>
       <td colspan="2">${result.수학총합}/${수학평균}</td>
-      </tr>`;
+    </tr>`;
 
-    table1.innerHTML += `<tr>
+    table1.innerHTML += `
+    <tr>
       <td colspan="2">만족도 평균</td>
       <td colspan="4"; align="center">${result.만족총합}/${getStarIcon(만족평균)}</td>
-      </tr>`;
+    </tr>`;
 
+    // 샘 1번 문제
+
+    let stu_count = 1;
+    const getRandomNameFrag = candidates => candidates[parseInt(Math.random() * candidates.length)];
+    const getRandomName2 = () => getRandomNameFrag(names1) + getRandomNameFrag(names2);
+
+    const getPaddedNum = (num, size) => {
+      let paddedResult = num.toString();
+
+      for (let i = paddedResult.length; i < size; i++) {
+        paddedResult = '0' + paddedResult;
+      }
+
+      return paddedResult;
+    };
+
+    const getStuNum = () => `STU${getPaddedNum(stu_count++, 8)}`;
+    const getRandomScore = () => parseInt(Math.random() * 101);
+    const getRandomStar = () => parseInt(Math.random() * 6);
+
+    const stus = [];
+
+    for (let i = 0; i < 100; i++) {
+      stus.push({
+        id: getStuNum(),
+        name: getRandomName2(),
+        kor: getRandomScore(),
+        eng: getRandomScore(),
+        math: getRandomScore(),
+        star: getRandomStar()
+      });
+    }
+
+    console.log(stus);
+
+    // 샘 2번 문제
+
+    const addRow = (tableId, data, part) => {
+      const toAdd = document.querySelector(`#${tableId} > ${part}`);
+
+      let row = '<tr>';
+      if (part === 'thead') {
+        for (key in data) {
+          row += `<th class='${key}'>${key}</th>`;
+        }
+      } else {
+        for (key in data) {
+          if (key === 'math' || key === 'eng' || key === 'kor') {
+            const score = data[key];
+            row += `<td class="${key} ${score < 60 ? 'red' : ''}">${data[key]}</td>`;
+          } else if (key === 'star') {
+            const starLen = data[key];
+            row += `<td class"${key}">`;
+            for (let i = 0; i < starLen; i++) {
+              row += '★';
+            }
+            for (let i = starLen; i < 5; i++) {
+              row += '☆';
+            }
+            row += '</td>';
+          } else {
+            row += `<td class="${key}"">${data[key]}</td>`;
+          }
+        }
+      }
+      row += '</tr>';
+      toAdd.innerHTML += row;
+    };
+
+    const addBodyRow = (tableId, data) => addRow(tableId, data, 'tbody');
+    const addHeadRow = (tableId, data) => addRow(tableId, data, 'thead');
+
+    stus.forEach((stu, index) => {
+      const tableId = 'basic_info_table';
+      if (index == 0) {
+        addHeadRow(tableId, stu);
+      }
+      addBodyRow(tableId, stu);
+    });
+
+    // 샘 3번 문제
+    stus.map(stu => ({
+      학번: stu.id,
+      이름: stu.name,
+      평균점수: Math.round((stu.kor + stu.eng + stu.math) / 3 * 100) / 100
+    }))
+      .forEach((stu, index) => {
+        const tableId = 'avg_info_table'
+        if (index == 0) {
+          addHeadRow(tableId, stu);
+        }
+        addBodyRow(tableId, stu);
+      });
+
+    // 샘 4번 문제
+    // 수학이 60점 미만인 사람을 filter
+    stus.filter(stu => stu.math < 60)
+      .map(stu => ({
+        학번: stu.id,
+        낙제자: stu.name,
+        수학점수: stu.math
+      }))
+      .forEach((stu, index) => {
+        const tableId = 'math_failure_table';
+        if (index == 0) {
+          addHeadRow(tableId, stu);
+        }
+        addBodyRow(tableId, stu);
+      });
+    
+    // 샘 5번 문제
+    document.querySelector('#basic_info_table > tbody')
+      .innerHTML += `<tr>
+        <td colspan="2">총합</td>
+        <td>${stus.reduce((acc, curr) => acc + curr.kor, 0)}</td>
+        <td>${stus.reduce((acc, curr) => acc + curr.eng, 0)}</td>
+        <td>${stus.reduce((acc, curr) => acc + curr.math, 0)}</td>
+        <td>${stus.reduce((acc, curr) => acc + curr.star, 0)}</td>
+      </tr>
+      <tr>
+        <td colspan="2">평균</td>
+        <td>${stus.reduce((acc, curr) => acc + curr.kor, 0) / stus.length}</td>
+        <td>${stus.reduce((acc, curr) => acc + curr.eng, 0) / stus.length}</td>
+        <td>${stus.reduce((acc, curr) => acc + curr.math, 0) / stus.length}</td>
+        <td>${stus.reduce((acc, curr) => acc + curr.star, 0) / stus.length}</td>
+      </tr>`
+
+        
   </script>
 </body>
 
