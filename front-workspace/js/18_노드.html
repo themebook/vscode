@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>18_노드.html</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    #out {
+      border: 3px solid black;
+      min-height: 100px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      column-gap: 10px;
+      row-gap: 10px;
+      padding: 10px;
+    }
+
+    #out > div {
+      border: 3px solid black;
+      min-height: 100px;
+    }
+
+    #game {
+      width: 250px;
+      border: 3px solid black;
+      padding: 10px;
+      margin: 10px;
+    }
+
+    #game > div {
+      width: 225px;
+      height: 225px;
+      border: 1px solid black;
+    }
+
+    #game > button {
+      width: 225px;
+      margin-top: 10px;
+    }
+
+    #control-panel {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+    }
+  </style>
+</head>
+<body>
+  
+  <h3># 노드</h3>
+
+  <ul>
+    <li>document 내부에 있는 모든 것들을 Node라고 부른다</li>
+    <li>요소(Element)를 더욱 세분화 한 개념이다</li>
+    <li>하나의 요소를 Element Node와 Text Node로 나눌 수 있다</li>
+    <li>주석은 Comment Node라고 한다</li>
+    <li>자바스크립트로 원하는 노드를 직접 생성하여 원하는 위치에 추가할 수 있다</li>
+  </ul>
+
+  <ul>
+    <li>document.createElement('name') : Element Node를 생성한다</li>
+    <li>document.createTextNode('content') : Text Node를 생성한다</li>
+    <li>element.appendChild(node) : 해당 요소에 자식 노드를 추가한다</li>
+    <li>element.insertBefore(node, refNode) : 원하는 노드의 앞에 노드를 추가한다</li>
+    <li>element.removeChild(node) : 해당 요소의 자식 노드를 삭제한다</li>
+    <li>element.replaceChild(newChild, oldChild) : 해당 요소의 자식 노드를 교체한다</li>
+  </ul>
+
+  <div id="game">
+    <div></div>
+    <button id="roll">가위, 바위, 보</button>
+  </div>
+
+  <div id="wrapper">
+    <div id="out"></div>
+    <div id="control-panel">
+      <button id="push">맨 뒤에 노드 추가하기</button>
+      <button id="unshift">맨 앞에 노드 추가하기</button>
+      <button id="shift">맨 앞의 노드 삭제하기</button>
+      <button id="pop">맨 뒤에 노드 삭제하기</button>
+    </div>
+  </div>
+
+  <script>
+    const game = document.getElementById('game');
+    const rollBtn = document.getElementById('roll');
+    
+    const createGameScreen = shape => {
+      const newGameScreenDiv = document.createElement('div');
+      const newGameScreenText = document.createTextNode(shape);
+      
+      newGameScreenDiv.classList.add(shape);
+      newGameScreenDiv.appendChild(newGameScreenText);
+      
+      return newGameScreenDiv;
+    };
+
+    const gameScreens = [
+      createGameScreen('가위'),
+      createGameScreen('바위'),
+      createGameScreen('보')
+    ];
+    
+    const getRandomGameScreen = () => gameScreens[parseInt(Math.random() * gameScreens.length)];
+    
+
+    rollBtn.addEventListener('click', e => {
+      const gameScreen = document.querySelector('#game > div');
+      game.replaceChild(getRandomGameScreen(), gameScreen);
+    });
+
+    const out = document.getElementById('out');
+    const push = document.getElementById('push');
+    const unshift = document.getElementById('unshift');
+    const shift = document.getElementById('shift');
+    const pop = document.getElementById('pop');
+
+    let count = 0;
+    push.addEventListener('click', (e) => {
+      // element node 생성
+      const newDiv = document.createElement('div');
+      const newTextNode = document.createTextNode(`text node ${count++}`);
+
+      newDiv.appendChild(newTextNode);
+      out.appendChild(newDiv);
+    });
+
+    unshift.addEventListener('click', (e) => {
+      const ref = out.firstChild;
+      // const ref = document.querySelector('#out > div');
+      const newDiv = document.createElement('div');
+      const newTextNode = document.createTextNode(`text node ${count++}`);
+
+      newDiv.appendChild(newTextNode);
+      out.insertBefore(newDiv, ref);
+    });
+
+    const remooove = (query, out) => {
+      const zlrzlr = document.getElementById(out);
+      const removeDiv = document.querySelector(query);
+      zlrzlr.removeChild(removeDiv);
+    };
+
+    shift.addEventListener('click', (e) => {
+      remooove('#out > div', 'out');
+    });
+
+    pop.addEventListener('click', e => {
+      remooove('#out > div:last-child', 'out');
+    });
+
+  </script>
+</body>
+</html>
